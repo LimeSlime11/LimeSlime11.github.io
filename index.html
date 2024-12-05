@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slime repo</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>tesing phase...</h1>
+    <ol id="folder-list">
+        <!-- content should generate here -->
+    </ol>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Replace with your GitHub username and repository name
+        const username = 'LimeSlime11';
+        const repoName = 'LimeSlime11.github.io';
+        const apiUrl = `https://api.github.com/repos/${username}/${repoName}/contents/`;
 
-    <!-- github workflow code from chatgpt updates this list -->
-    <ol id="folder-list"></ol>
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+            const folderList = document.getElementById('folder-list');
+
+            // Loop through the data and append folders (excluding those starting with ".")
+            data.forEach(item => {
+                if (item.type === 'dir' && !item.name.startsWith('.')) {
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `/${item.name}/`;
+                link.textContent = item.name;
+
+                listItem.appendChild(link);
+                folderList.appendChild(listItem);
+                }
+            });
+            })
+            .catch(error => {
+            console.error('Error fetching folder list:', error);
+            });
+        });
+  </script>
 </body>
 </html>
