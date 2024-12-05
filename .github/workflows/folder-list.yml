@@ -15,8 +15,14 @@ jobs:
 
       - name: Generate folder list
         run: |
+          # Generate the folder list as HTML <li> elements
           folder_list=$(find . -type d -mindepth 1 -maxdepth 1 | sort | awk -F/ '{printf "<li><a href=\"%s/\">%s</a></li>\n", $2, $2}')
-          sed -i '/<ol id="folder-list">/,/<\/ol>/c\<ol id="folder-list">\n'"$folder_list"'\n</ol>' index.html
+          
+          # Read the index.html file, replace the <ol id="folder-list"> section, and create a new file
+          sed "s|<ol id=\"folder-list\">.*</ol>|<ol id=\"folder-list\">\n$folder_list</ol>|g" index.html > temp_index.html
+          
+          # Move the new file to replace the old index.html
+          mv temp_index.html index.html
 
       - name: Commit and push changes
         run: |
