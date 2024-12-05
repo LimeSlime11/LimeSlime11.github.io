@@ -6,3 +6,7 @@ body, a {
     color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+a:not(:hover) {
+    text-decoration: none;
+}
