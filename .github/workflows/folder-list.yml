@@ -15,7 +15,7 @@ jobs:
 
       - name: Generate folder list
         run: |
-          folder_list=$(find . -type d -mindepth 1 -maxdepth 1 | sort | awk -F/ '{print "<li><a href=\"" $2 "/\">" $2 "</a></li>"}')
+          folder_list=$(find . -type d -mindepth 1 -maxdepth 1 | sort | awk -F/ '{printf "<li><a href=\"%s/\">%s</a></li>\n", $2, $2}')
           sed -i '/<ol id="folder-list">/,/<\/ol>/c\<ol id="folder-list">\n'"$folder_list"'\n</ol>' index.html
 
       - name: Commit and push changes
