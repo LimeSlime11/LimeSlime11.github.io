@@ -1,30 +1,27 @@
-name: Generate Folder List
+name: Update Folder List
 
 on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 0 * * *" # Optional: runs daily
 
 jobs:
-  build-index:
+  update-folder-list:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Update folder list in index.html
+      - name: Generate folder list
         run: |
-          # Extract folder names and update the <ul> section in index.html
           folder_list=$(find . -type d -mindepth 1 -maxdepth 1 | sort | awk -F/ '{print "<li><a href=\"" $2 "/\">" $2 "</a></li>"}')
-          sed -i '/<!-- Folder list start -->/,/<!-- Folder list end -->/c\<!-- Folder list start -->\n'"$folder_list"'\n<!-- Folder list end -->' index.html
+          sed -i '/<ol id="folder-list">/,/<\/ol>/c\<ol id="folder-list">\n'"$folder_list"'\n</ol>' index.html
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
           git add index.html
-          git commit -m "Update index.html with folder list"
+          git commit -m "Update folder list in index.html"
           git push
