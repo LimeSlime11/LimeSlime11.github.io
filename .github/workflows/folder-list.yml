@@ -13,10 +13,10 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Generate folder list
+      - name: Generate folder list (excluding dot folders)
         run: |
-          # Generate the folder list as HTML <li> elements
-          folder_list=$(find . -type d -mindepth 1 -maxdepth 1 | sort | awk -F/ '{printf "<li><a href=\"%s/\">%s</a></li>\n", $2, $2}')
+          # Generate the folder list as HTML <li> elements, excluding folders starting with '.'
+          folder_list=$(find . -type d -mindepth 1 -maxdepth 1 ! -name '.*' | sort | awk -F/ '{printf "<li><a href=\"%s/\">%s</a></li>\n", $2, $2}')
           
           # Read the original index.html, replace the <ol id="folder-list"> section, and write to a new file
           awk -v list="$folder_list" '{if ($0 ~ /<ol id="folder-list">/) {print "<ol id=\"folder-list\">"} else if ($0 ~ /<\/ol>/) {print "</ol>"} else print $0}' index.html > temp_index.html
