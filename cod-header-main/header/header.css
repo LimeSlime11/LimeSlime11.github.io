@@ -1,0 +1,79 @@
+@font-face {
+    /* https://brand.callofduty.com/typography/typeface */
+    font-family: Hitmarker;
+    src: url(resources/fonts/HitmarkerText-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    margin-inline: 60px;
+    margin-block-start: 20px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(22px);
+}
+
+#header,
+.link {
+    color: white;
+    font-family: Hitmarker;
+}
+.link {
+    text-decoration: none;
+}
+.nav {
+    list-style-type: none;
+}
+
+#header .wrapper,
+.nav .link,
+.nav,
+#orange {
+    display: flex;
+    align-items: center;
+}
+
+#header .wrapper {
+    height: 44px;
+    padding: 0 .5rem;
+}
+
+.nav .link {
+    height: 44px;
+    padding-inline: 12px;
+}
+
+.nav .link:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+#bo6Logo {
+    display: flex;
+    height: fit-content;
+
+    border-left: solid white 1px;
+    padding-inline-start: 1.5rem;
+    margin-inline: 1.5rem;
+}
+#bo6Logo img {
+    height: 14px;
+    width: auto;
+}
+
+#orange {
+    height: 28px;
+    margin-inline-start: auto;
+    padding-inline: .5rem;
+
+    font-weight: bold;
+
+    border-radius: .2rem;
+    background-color: rgb(223, 134, 1);
+    text-shadow: -1px 1px rgba(0, 0, 0, 0.527);
+}
