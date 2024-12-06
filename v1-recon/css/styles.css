@@ -1,0 +1,203 @@
+/* Import for Eric Meyer's Default Styling Reset */
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+
+/* Import for font */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+/* Animation for AspIT SVG */
+@keyframes dot-bounce {
+  0% {
+    translate: 0;
+    animation-timing-function: cubic-bezier(0.46, 0.76, 0.54, 0.99);
+  }
+  50% {
+    translate: 0 -5%;
+    animation-timing-function: cubic-bezier(0.43, 0.25, 0.45, 2);
+  }
+}
+
+/* Root and Variables */
+:root {
+  --dGreen: #194541;
+  --orange: #ff5747;
+  --header: 4rem;
+  
+  background: var(--dGreen);
+  overflow: hidden;
+  max-height: 100svh;
+}.hide {
+  display: none;
+}strong {
+  font-weight: bolder;
+}
+  
+  /* Fonts */
+:root,
+a {
+  font-family: Lexend;
+  color: whitesmoke;
+  text-align: inherit;
+  text-shadow: black 1px 1px 1px;
+}code {
+  display: inline-block;
+  background-color: black;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+h1 {font-size: 2em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.2em;}
+
+/* Links */
+a:not(:hover) { 
+  /*The default decoration is removed unless hovered over*/
+  text-decoration: none;
+}
+
+/* Screen width limit */
+header, 
+main {
+  max-width: 1366px;
+  width: 100%;
+}
+
+
+/* Body */
+body {
+  padding: 1rem;
+  margin-top: var(--header);
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  max-height: calc(100svh - var(--header));
+}
+
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  
+  height: var(--header);
+  
+  background-color: var(--dGreen);
+}
+header ul,
+header h1 {
+  line-height: var(--header);
+}
+header nav,
+header ul {
+  display: inherit;
+  margin-left: auto;
+}
+header li {
+  margin: .5rem .5rem .5rem 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+header a {
+  display: inherit;
+  align-items: center;
+  padding: .5rem;
+  width: 100%;
+  height: 100%;
+}
+
+header h1 {
+  order: 1;
+  margin-left: 1em;
+  text-align: center;
+}
+
+
+/* AspIT SVG */
+.AspIT {
+  height: calc(200% - 8px - .5rem);
+  margin: 0.5rem;
+  aspect-ratio: 1;
+  
+  background-color: whitesmoke;
+  border-radius: 50%;
+  outline: 4px solid var(--dGreen);
+}
+.AspIT:hover path:first-child {
+  animation: dot-bounce 0.5s;
+}
+.orange-fill {
+  fill: #ff5747;
+  color: #ff5747;
+}
+.black-fill {
+  fill: black;
+}
+.green-fill {
+  fill: #194541;
+}
+
+/* main content */
+main {
+  line-height: 1.5em;
+  word-spacing: .2em;
+  
+  width: 100%;
+}
+main li::before {
+  content: "- ";
+}
+
+section {
+  scroll-margin: calc(var(--header) + 1rem);
+  margin-bottom: 2rem;
+}
+section:not(:last-child) {
+  margin-bottom: 1rem;
+  border-bottom: white dashed 1px;
+}
+
+section > * {
+  margin-bottom: 1em;
+}
+
+section h2:first-child {
+  /* titles won't hide behind Logo */
+    width: calc(100% - 112px);
+}
+
+article,
+article ul {
+  margin-left: 1em;
+}
+
+code {
+  
+}
+code:has(span) {
+  color:khaki;
+}
+.t0 {
+  color: whitesmoke;
+}
+.t1 {
+  color: sandybrown;
+}
+.t2 {
+  color: skyblue;
+}
+.t3 {
+  color: thistle;
+}
+

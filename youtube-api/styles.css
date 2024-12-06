@@ -1,0 +1,149 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
+
+:root {
+    --customFontSize: 20px;
+    --opacent: rgba(0, 0, 0, 0.4);
+}
+.videoCheckbox {display: none;}
+h1, h2, p {
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inputWrapper, #textField, #playlistContainer, 
+.wrapper, iframe {
+    background-color: var(--opacent);
+    border-radius: 1rem;
+}
+html, body {min-height: 100%;}
+
+html {
+    background-color: rgb(50, 50, 50);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+
+h1, h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+.inputWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    max-width: 1080px;
+    padding: 1rem;
+
+    
+}
+
+#textField {
+    width: 50vw;
+    max-width: 50rem;
+    box-sizing: border-box;
+    border: none;
+    padding: .5rem;
+    color: white;
+    font-size: var(--customFontSize);
+}
+#textField:focus {outline: none;}
+
+button {
+    font-size: var(--customFontSize);
+}
+
+.playlistWrapper{
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#playlistContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    min-height: 50%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.item {
+    max-width: calc(100% / 5);
+    min-width: 180px;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    aspect-ratio: 16/9;
+    padding: 1rem;
+    position: relative;
+}
+
+iframe {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper:has(input:checked) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    background: none;
+}
+.wrapper:has(input:checked) iframe {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    
+    padding: 1rem;
+    max-height: 44vw;
+    max-width: 77vw;
+}
+.videoCheckbox:checked + .overlay {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--opacent);
+}
+
+@media (min-width: 721px) {
+    
+    .playlistWrapper {
+        max-width: 1480px;
+    }
+    #playlistContainer {
+        justify-content: left;
+    }
+}
+
+@media (max-width: 720px) {
+    .inputWrapper {
+        flex-direction: column;
+    }
+}
