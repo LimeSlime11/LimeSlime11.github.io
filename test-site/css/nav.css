@@ -1,0 +1,66 @@
+@font-face {
+    font-family: GGST;
+    src: url(/css/Impact\ -\ Strive.otf);
+}
+nav, nav header, nav ul {
+    margin: 0;
+    padding: 0;
+} 
+nav {
+    position: fixed; /*it is fixed in a point WITHIN the parent element*/
+    top:-1rem;
+    left: 1rem;
+    max-height: 2.8rem; /*had to use maxheight as default height, cause smooth transitions dont work for going from absolutes to variables*/
+    background-image: url(/images/steelbg.jpg);
+    padding: 0.2rem;
+    border-radius: 1rem;
+    border-style: outset;
+    border-color: gray;
+    display: flex;
+    overflow: visible;
+    flex-direction: column;
+}
+nav header {
+    margin-top: .8em;
+    padding-bottom: .5em;
+    font-size: large;
+    text-align: center;
+    font-family: GGST;
+    color: white;
+    -webkit-text-stroke: 0.5px dimgray;
+    text-shadow: 0 0 5px black;
+}
+nav a{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: ghostwhite;
+    -webkit-text-stroke: 0.2px black;
+    text-shadow: 0 0 5px darkred;
+    text-decoration: none;
+    font-size: medium;
+    overflow-wrap: break-word; /*incase a word is too long, it'll be split into another line*/ 
+    width: 100px;
+    margin: 0.1rem;
+    padding: 0.5rem 0;
+    border-style: outset;
+    border-radius: 0.5rem;
+    border-color: rgb(95, 0, 0);
+    background-image: url(/images/background.png);
+}
+
+nav ul {
+    /*width needs no definition cause it by default shapes itself to fit the elements, by defining the elements size and arrangement, it's under control.*/
+    display: flex;  /*This is now a flexbox*/
+    flex-direction: column; /*Items will be displayed vertically*/
+    overflow: auto; /*Allows the box to have a scrollbar when overfilled*/
+    scrollbar-width:none; /*Hides the scrollbar*/
+}
+nav:hover {
+    max-height: 95%;
+}
+nav, nav a{
+    transition: .2s;
+}
+nav a:hover {
+    filter: brightness(1.25);
+}
