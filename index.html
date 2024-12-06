@@ -7,10 +7,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>List of projects in my GitHub Repository</h1>
-    <ol id="folder-list">
-        <!-- content should generate here -->
-    </ol>
+    <div class="window">
+        <ul class="tabs">
+            <li class="tab" id="tab1">
+                <label>
+                    <input type="radio" name="tab" checked="checked">
+                    <p>Info</p>
+                </label>
+            </li>
+            <li class="tab" id="tab2">
+                <label>
+                    <input type="radio" name="tab">
+                    <p>Indexes</p>
+                </label>
+            </li>
+            <li class="tab" id="tab3">
+                <label>
+                    <input type="radio" name="tab">
+                    <p>Other</p>
+                </label>
+            </li>
+        </ul>   
+        <div class="content">
+            <aside>
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </aside>
+
+            <main>
+                <!-- put this in an element relative to tab2 -->
+                <ol id="folder-list">
+                    <!-- content should generate here -->
+                </ol>
+    
+            </main>
+        </div>
+    </div>
+
+    <!-- script which generates list of sites from repository via github API -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
         // Replace with your GitHub username and repository name
