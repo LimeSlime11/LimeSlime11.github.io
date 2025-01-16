@@ -29,16 +29,6 @@
             </li>
         </ul>   
         <div class="content">
-            <aside>
-                <ul>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                </ul>
-            </aside>
-
             <main>
                 <!-- put this in an element relative to tab2 -->
                 <ol id="folder-list">
@@ -64,14 +54,14 @@
 
             // Loop through the data and append folders (excluding those starting with ".")
             data.forEach(item => {
-                if (item.type === 'dir' && !item.name.startsWith('.')) {
-                const listItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = `/${item.name}/`;
-                link.textContent = item.name;
+                if (item.type === 'dir' && !item.name.startsWith('.') && item.name !== 'resources') {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `/${item.name}/`;
+                    link.textContent = item.name;
 
-                listItem.appendChild(link);
-                folderList.appendChild(listItem);
+                    listItem.appendChild(link);
+                    folderList.appendChild(listItem);
                 }
             });
             })

@@ -1,3 +1,12 @@
+@keyframes scroll {
+    from {
+        translate: -50% -50%;
+    }
+    to {
+        translate: calc(-50% + 2.84cm) calc(-50% + 2.84cm);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,6 +27,10 @@ a {
 }
 ul {
     list-style: none;
+}
+ol {
+    margin-top: .5rem;
+    list-style-position: inside;
 }
 .tab input {
     display: none;
@@ -44,6 +57,9 @@ body::after,
     background-size: 2cm;
     background-image: url(resources/SVG/x-bg.svg);
 }
+body::after {
+    animation: scroll 30s infinite linear;
+}
 
 body,
 ul,
@@ -62,15 +78,17 @@ body {
 }
 
 .window {
-    /* resize: both; */
-    overflow: hidden;
+    padding: .5rem;
 
     width: 75vw;
     height: 75svh;
 
     border-radius: 1rem;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2258%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient2259%26quot%3b)'%3e%3c/rect%3e%3cpath d='M0 0L454.13 0L0 91.15z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M0 91.15L454.13 0L473.57 0L0 91.95z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M0 91.95L473.57 0L735.95 0L0 151.58z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M0 151.58L735.95 0L1092.3400000000001 0L0 248.95000000000002z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M1440 560L1118.46 560L1440 471.07z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M1440 471.07L1118.46 560L512.8000000000001 560L1440 362.15z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M1440 362.15L512.8 560L495.61999999999995 560L1440 210.35999999999999z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M1440 210.36L495.62 560L207.92000000000002 560L1440 186.56z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2258'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='100%25' x2='50%25' y2='0%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2259'%3e%3cstop stop-color='rgba(37%2c 20%2c 149%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(121%2c 38%2c 126%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2258%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient2259%26quot%3b)'%3e%3c/rect%3e%3cpath d='M0 0L454.13 0L0 91.15z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M0 91.15L454.13 0L473.57 0L0 91.95z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M0 91.95L473.57 0L735.95 0L0 151.58z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M0 151.58L735.95 0L1092.3400000000001 0L0 248.95000000000002z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M1440 560L1118.46 560L1440 471.07z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M1440 471.07L1118.46 560L512.8000000000001 560L1440 362.15z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M1440 362.15L512.8 560L495.61999999999995 560L1440 210.35999999999999z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M1440 210.36L495.62 560L207.92000000000002 560L1440 186.56z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2258'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='100%25' x2='50%25' y2='0%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2259'%3e%3cstop stop-color='rgba(37%2c 20%2c 149%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(121%2c 38%2c 126%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"); */
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, 1), rgba(0, 0, 0, .8));
+
+
 }
 
 .window::after {
@@ -80,7 +98,7 @@ body {
 
     width: inherit;
     height: inherit;
-    padding: 2px;
+    padding: 1.5px;
     border-radius: inherit;
 
     
@@ -95,6 +113,8 @@ body {
     height: calc(14px + 1.2rem);
     width: 100%;
     align-items: end;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, transparent, white 10px, transparent 15rem) 1;
 }
 
 .tab label {
