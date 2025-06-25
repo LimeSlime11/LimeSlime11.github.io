@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  height: 55px;
+
+  padding: 10px;
+  
+  display: flex;
+}
+
+nav {
+  display: inherit;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logo, .logo img,
+.menu-btn img {
+  display: block;
+  height: 100%;
+  width: auto;
+}

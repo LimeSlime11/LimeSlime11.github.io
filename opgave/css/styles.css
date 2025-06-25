@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+@import url(header.css);
+@import url(footer.css);
+
+/* General styling */
+:root {
+  font-family: 'Mukta', sans-serif;
+  
+} * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+.layer {
+  display: block;
+
+}
+.layer:nth-child(3n-1) {
+  background-color: #f7f7f7;
+}
+.layer:nth-child(3n) {
+  background-color: #edcb35;
+}.layer:nth-child(3n+1) {
+  background-color: #7bc144;
+}
+
+hero, footer, .button,
+.layer:nth-child(3n+1) {
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 26px;
+}
+
+.layer {
+  --gaps : 30px;
+  padding: var(--gaps);
+  mask-image: url(../img/arrow-section.svg), linear-gradient(white, white);
+  mask-composite: exclude;
+  mask-repeat: no-repeat;
+  mask-position: top center, 0 0;
+  mask-size: auto, 100% 100%;
+  mask-composite: exclude;
+ }
+  
+.layer:not(:first-child),
+.L1 {
+  margin-top: -30px;
+}
+
+.layer > * {
+  max-width: 1024px;
+  margin: var(--gaps) auto;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: block;
+  width: max-content;
+  padding: 10px 20px;
+  background-color: #333333;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gaps);
+  padding: var(--gaps);
+}
+
+p {
+  line-height: 1.2;
+  font-size: 20px;
+}
+
+hero.layer {
+  background-size: cover;
+  padding: 100px;
+}
+
+hero .button {
+  background-color: #7bc144;
+}
+
+
+
+
+
+/* Layers */
+/* Layer 0  Hero */
+.L0 {
+  background-image: url(../img/hero-02.jpg);
+  mask-image: none;
+}
+
+/* Layer 1  Services */
+.L1 {
+  
+}
+
+.L1 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.L1 p {
+  font-weight: bold;
+}
+
+.L1 li {
+  position: relative;
+}
+
+.L1 li:hover::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  aspect-ratio: 1;
+  top: calc(-100% + 50px);
+  left: 50%;
+  translate: -50% 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.L1 li:nth-child(4):hover::after {
+  content: "hi";
+}
+
+/* Layer 2  About */
+  .L2 {
+  
+  }
+
+
+/* Layer 5 CustomerService */
+.L5 ul {
+  text-align: start;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.L5 p {
+  display: inline;
+}
+.L5 img {
+  margin-top: -20%;
+  width: 100%;
+}
+
+
+/* Layer 6  Hero */
+.L6 {
+  background-image: url(../img/budbil1.jpg);
+  background-position: bottom;
+}

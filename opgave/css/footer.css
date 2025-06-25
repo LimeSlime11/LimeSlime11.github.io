@@ -1,0 +1,15 @@
+footer {
+  background-color: #333333 !important;
+}
+footer .columns {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer span {
+  color: #7bc144;
+  display: block;
+  font-size: 20px;
+}
+footer p {
+  font-size: 16px;
+}
